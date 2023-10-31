@@ -1,14 +1,28 @@
 import pygame
 
+CLEAR = (0,0,0)
+
 class Alien:
     def __init__(self, xPos, yPos):
         self.width = 50
         self.height = 50
         self.x = xPos
         self.y = yPos
+        self.vx = 10
+        self.vy = 10
         self.color = (255,255,255)
-        self.image = pygame.Rect(xPos ,yPos ,self.width, self.height)
 
     def printAlien(self, screen):
-        pygame.draw.rect(screen, self.color, self.image)
+        pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
+
+    def clearAlien(self,screen):
+        pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
+
+    def updateX(self):
+        self.x += self.vx
+
+    def updateY(self):
+        self.y = self.vy
+
+        
 
