@@ -1,5 +1,6 @@
 import pygame
 
+#CONSTANTS
 CLEAR = (0,0,0)
 
 class Alien:
@@ -21,8 +22,12 @@ class Alien:
     def updateX(self):
         self.x += self.vx
 
+    def inverseDirectionX(self):
+        self.vx *= -1
+
     def updateY(self):
-        self.y = self.vy
+        self.y += self.vy
+
 
         
 
