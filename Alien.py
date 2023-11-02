@@ -1,7 +1,5 @@
 import pygame
-
-#CONSTANTS
-CLEAR = (0,0,0)
+from Constants import CLEAR
 
 class Alien:
     def __init__(self, xPos, yPos):

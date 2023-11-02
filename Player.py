@@ -1,10 +1,5 @@
 import pygame
-
-#CONSTANTS
-SCREEN_WIDTH = 1800
-SCREEN_HEIGHT = 1000
-CLEAR = (0,0,0)
-
+from Constants import SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR, PLAYERCOLOR
 
 class Player:
     def __init__(self, screen):
@@ -14,7 +9,7 @@ class Player:
         self.height = 15
         self.vx = 11
         self.screen = screen
-        self.color = (255,255,0)
+        self.color = PLAYERCOLOR
 
     def clearPlayer(self):
         pygame.draw.rect(self.screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
