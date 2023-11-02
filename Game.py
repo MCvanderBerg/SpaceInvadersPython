@@ -1,15 +1,15 @@
 import pygame
 import Enemies as en
 import Player as pl
+import Missle 
 import sys
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 running = True
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
 
 aliens = en.Enemies()
-player = pl.Player(screen)
+player = pl.Player()
 
 def checkEvents():
     global running
@@ -23,20 +23,41 @@ def checkEvents():
                     player.updatePlayer(-1)
                 if event.key == pygame.K_d:
                     player.updatePlayer(1)
+                
+                player.printPlayer()
+
+
+            if event.key == pygame.K_SPACE:
+                player.createNewMissle()
 
             if event.key == pygame.K_ESCAPE:
                 running = False
 
+
+player.printPlayer()
 def run_game():
-    global running
     while running:
+        #Check for user inputs
+        #Print update, clear player
         checkEvents()
-        aliens.printEnemies(screen)
-        player.printPlayer()
+
+        #Print Enemies, Missles to screen
+        aliens.printEnemies()
+        player.printMissles()
+
+        #Double buffer. Display all printed elements
         pygame.display.flip()
-        aliens.clearEnemies(screen)
-        aliens.updateEnemies()
         clock.tick(10)
+
+
+        #Print Enemies, Missles to screen
+        aliens.clearEnemies()
+        player.clearMissles()
+
+        #Print Enemies, Missles to screen
+        aliens.updateEnemies()
+        player.updateMissles()
+
 
 
 

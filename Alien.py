@@ -1,5 +1,5 @@
 import pygame
-from Constants import CLEAR
+from Constants import CLEAR, screen
 
 class Alien:
     def __init__(self, xPos, yPos):
@@ -11,10 +11,10 @@ class Alien:
         self.vy = 10
         self.color = (255,255,255)
 
-    def printAlien(self, screen):
+    def printAlien(self):
         pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
 
-    def clearAlien(self,screen):
+    def clearAlien(self):
         pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
 
     def updateX(self):
