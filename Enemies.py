@@ -11,9 +11,9 @@ class Enemies:
     def getAliens(self):
         return self.aliens
 
-    def printEnemies(self, screen):
+    def printEnemies(self):
         for a in self.aliens:
-            a.printAlien(screen)
+            a.printAlien()
 
     def updateEnemies(self):
         reverseXdirection = False
@@ -30,6 +30,6 @@ class Enemies:
                 
 
 
-    def clearEnemies(self, screen):
+    def clearEnemies(self):
         for a in self.aliens:
-            a.clearAlien(screen)
+            a.clearAlien()
