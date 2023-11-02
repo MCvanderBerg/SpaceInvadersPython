@@ -2,10 +2,7 @@ import pygame
 import Enemies as en
 import Player as pl
 import sys
-
-#CONSTANTS
-SCREEN_WIDTH = 1800
-SCREEN_HEIGHT = 1000
+from Constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 running = True
 clock = pygame.time.Clock()
