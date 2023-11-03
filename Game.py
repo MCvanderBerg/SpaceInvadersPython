@@ -1,12 +1,18 @@
 import pygame
 import Enemies as en
 import Player as pl
-import Missle 
 import sys
-from Constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, screen, CLEAR
+
+pygame.init()
 
 running = True
 clock = pygame.time.Clock()
+
+
+score = 0
+scoreFont = pygame.font.SysFont("monospace", 36)
+scoreLabel = scoreFont.render("Score: ", True, (255,255,0))
 
 enemies = en.Enemies()
 player = pl.Player()
@@ -36,10 +42,17 @@ def checkEvents():
 
 player.printPlayer()
 def run_game():
+    global score
     while running:
         #Check for user inputs
         #Print update, clear player
         checkEvents()
+
+        #Print basic components to screen
+        scoreValue = scoreFont.render(str(score), True, (255,255,0))
+        pygame.draw.rect(screen, CLEAR, pygame.Rect(100, 25, 100, 100))
+        screen.blit(scoreLabel, (10, 25))
+        screen.blit(scoreValue, (100, 25))
 
         #Print Enemies, Missles to screen
         enemies.printEnemies()
@@ -68,6 +81,7 @@ def run_game():
                         if  player.missles[i].y > enemies.aliens[j].y and  player.missles[i].y < enemies.aliens[j].y + enemies.aliens[j].height:
                             del player.missles[i]
                             del enemies.aliens[j]
+                            score += 10
                             break
                 
 
