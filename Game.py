@@ -62,13 +62,11 @@ def run_game():
         if (len(player.missles)):
             for i in reversed(range(len(player.missles))):
                 for j in range(len(enemies.aliens)):
-                    print(player.missles[i].x)
-                    print(enemies.aliens[j].x)
-                    if player.missles[i].x >= enemies.aliens[j].x and  player.missles[i].x <= enemies.aliens[j].x + enemies.aliens[j].width:
-                        if  player.missles[i].y > enemies.aliens[j].y and  player.missles[i].y < enemies.aliens[j].y + enemies.aliens[j].height:
-                            del player.missles[i]
-                            del enemies.aliens[j]
-                            break
+                    if (player.missles[i].x >= enemies.aliens[j].x and  player.missles[i].x <= enemies.aliens[j].x + enemies.aliens[j].width and
+                    player.missles[i].y > enemies.aliens[j].y and  player.missles[i].y < enemies.aliens[j].y + enemies.aliens[j].height):
+                        del player.missles[i]
+                        del enemies.aliens[j]
+                        break
                 
 
 
