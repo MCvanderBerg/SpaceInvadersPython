@@ -11,6 +11,9 @@ class Missle:
         self.vy = 10
         self.damage = 20
 
+    def getX(self):
+        return self.x
+
     def update(self):
         self.y -= self.vy
 
