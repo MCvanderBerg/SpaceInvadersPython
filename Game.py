@@ -8,7 +8,7 @@ from Constants import SCREEN_WIDTH, SCREEN_HEIGHT
 running = True
 clock = pygame.time.Clock()
 
-aliens = en.Enemies()
+enemies = en.Enemies()
 player = pl.Player()
 
 def checkEvents():
@@ -42,7 +42,7 @@ def run_game():
         checkEvents()
 
         #Print Enemies, Missles to screen
-        aliens.printEnemies()
+        enemies.printEnemies()
         player.printMissles()
 
         #Double buffer. Display all printed elements
@@ -51,12 +51,25 @@ def run_game():
 
 
         #Print Enemies, Missles to screen
-        aliens.clearEnemies()
+        enemies.clearEnemies()
         player.clearMissles()
 
         #Print Enemies, Missles to screen
-        aliens.updateEnemies()
+        enemies.updateEnemies()
         player.updateMissles()
+
+        #Do colition detection
+        if (len(player.missles)):
+            for i in reversed(range(len(player.missles))):
+                for j in range(len(enemies.aliens)):
+                    print(player.missles[i].x)
+                    print(enemies.aliens[j].x)
+                    if player.missles[i].x >= enemies.aliens[j].x and  player.missles[i].x <= enemies.aliens[j].x + enemies.aliens[j].width:
+                        if  player.missles[i].y > enemies.aliens[j].y and  player.missles[i].y < enemies.aliens[j].y + enemies.aliens[j].height:
+                            del player.missles[i]
+                            del enemies.aliens[j]
+                            break
+                
 
 
 
