@@ -3,16 +3,19 @@ from Constants import CLEAR, screen
 
 class Alien:
     def __init__(self, xPos, yPos):
-        self.width = 50
-        self.height = 50
         self.x = xPos
         self.y = yPos
         self.vx = 10
         self.vy = 10
         self.color = (255,255,255)
+        self.imageUrl = pygame.image.load("./src/assets/icons/vanillaInvader.png")
+        self.imageScale = 5
+        self.image = pygame.transform.scale(self.imageUrl, (self.imageUrl.get_width() * self.imageScale, self.imageUrl.get_height() * self.imageScale))
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
 
     def printAlien(self):
-        pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
+        screen.blit(self.image,(self.x, self.y))
 
     def clearAlien(self):
         pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))

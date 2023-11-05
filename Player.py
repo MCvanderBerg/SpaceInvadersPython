@@ -8,14 +8,17 @@ from Constants import SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR, PLAYERCOLOR, screen
 class Player:
     def __init__(self):
         self.x = SCREEN_WIDTH/2
-        self.y = SCREEN_HEIGHT - 200
-        self.width = 30
-        self.height = 15
+        self.y = SCREEN_HEIGHT - 80
         self.vx = 11
         self.color = PLAYERCOLOR
         self.missles = []
         self.missleDebouncing = 1
         self.missleStartTime = time.time() - self.missleDebouncing
+        self.imageUrl = pygame.image.load("./src/assets/icons/player.png")
+        self.imageScale = 0.1
+        self.image = pygame.transform.scale(self.imageUrl, (self.imageUrl.get_width() * self.imageScale, self.imageUrl.get_height() * self.imageScale))
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
 
     def createNewMissle(self):
         currentTime = time.time()
@@ -46,7 +49,7 @@ class Player:
         pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
 
     def printPlayer(self):
-        pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.width, self.height))
+        screen.blit(self.image,(self.x, self.y))
 
     def updatePlayer(self,direction):
         self.x += direction*self.vx
