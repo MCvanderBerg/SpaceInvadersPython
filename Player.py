@@ -17,7 +17,6 @@ class Player:
         self.missleDebouncing = 1
         self.missleStartTime = time.time() - self.missleDebouncing
 
-
     def createNewMissle(self):
         currentTime = time.time()
         if len(self.missles) < 3 and currentTime > self.missleStartTime + self.missleDebouncing:

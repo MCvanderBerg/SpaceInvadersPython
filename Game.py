@@ -10,14 +10,13 @@ clock = pygame.time.Clock()
 
 #Initialize pygame
 pygame.init()
+enemies = en.Enemies()
+player = pl.Player()
+
 
 score = 0
 scoreFont = pygame.font.SysFont("monospace", 36)
 scoreLabel = scoreFont.render("Score: ", True, (255,255,0))
-
-
-enemies = en.Enemies()
-player = pl.Player()
 
 def checkEvents():
     global running
@@ -55,6 +54,10 @@ def run_game():
         scoreValue = scoreFont.render(str(score), True, (255,255,0))
         screen.blit(scoreLabel, (10,25))
         screen.blit(scoreValue, (100, 25))
+
+        pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 25, 5*player.width, player.height))
+        for i in range(3-len(player.missles)):
+            pygame.draw.rect(screen, player.color, pygame.Rect(1500 + 50*i, 25, player.width, player.height))
 
         #Print Enemies, Missles to screen
         enemies.printEnemies()
