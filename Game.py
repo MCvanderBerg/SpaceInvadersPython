@@ -1,6 +1,7 @@
 import pygame
 import Enemies as en
 import Player as pl
+from Missle import Missle as mle
 import sys
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, CLEAR, screen
 
@@ -57,7 +58,7 @@ def run_game():
 
         pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 25, 5*player.width, player.height))
         for i in range(3-len(player.missles)):
-            pygame.draw.rect(screen, player.color, pygame.Rect(1500 + 50*i, 25, player.width, player.height))
+           mle.printMissle(1500 + 50*i, 25)
 
         #Print Enemies, Missles to screen
         enemies.printEnemies()
