@@ -1,6 +1,9 @@
 import pygame
 import Missle
+import time
 from Constants import SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR, PLAYERCOLOR, screen
+
+
 
 class Player:
     def __init__(self):
@@ -11,9 +14,14 @@ class Player:
         self.vx = 11
         self.color = PLAYERCOLOR
         self.missles = []
+        self.missleDebouncing = 1
+        self.missleStartTime = time.time() - self.missleDebouncing
 
     def createNewMissle(self):
-        self.missles.append(Missle.Missle(self.x + self.width/2, self.y))
+        currentTime = time.time()
+        if len(self.missles) < 3 and currentTime > self.missleStartTime + self.missleDebouncing:
+            self.missleStartTime = currentTime
+            self.missles.append(Missle.Missle(self.x + self.width/2, self.y))
 
     def updateMissles(self):
         if self.missles:
