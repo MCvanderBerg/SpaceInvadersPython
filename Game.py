@@ -64,7 +64,6 @@ def run_game():
         pygame.display.flip()
         clock.tick(10)
 
-
         #Print Enemies, Missles to screen
         enemies.clearEnemies()
         player.clearMissles()

@@ -17,9 +17,8 @@ class Player:
 
     def updateMissles(self):
         if self.missles:
-            for i in range(len(self.missles)):
+            for i in reversed(range(len(self.missles))):
                 if self.missles[i].y <=0:
-                    print("delete")
                     del self.missles[i]
                 else:
                     self.missles[i].update()

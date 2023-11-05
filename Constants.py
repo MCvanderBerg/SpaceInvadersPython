@@ -1,8 +1,5 @@
 import pygame
 
-#This is the folder where all the contants are
-
-
 #CONSTANTS
 SCREEN_WIDTH = 1800
 SCREEN_HEIGHT = 1000
