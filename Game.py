@@ -56,9 +56,14 @@ def run_game():
         screen.blit(scoreLabel, (10,25))
         screen.blit(scoreValue, (100, 25))
 
-        pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 25, 5*player.width, player.height))
+        pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 25, 10*player.width, player.height))
         for i in range(3-len(player.missles)):
-           mle.printMissle(1500 + 50*i, 25)
+           mle.printMissle(1500 + 40*i, 25)
+
+        if player.lives:
+            for i in range(player.lives):
+                screen.blit(player.livesUrl, (1610 + 60*i, 10))
+        #else game over
 
         #Print Enemies, Missles to screen
         enemies.printEnemies()

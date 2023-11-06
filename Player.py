@@ -19,7 +19,9 @@ class Player:
         self.image = pygame.transform.scale(self.imageUrl, (self.imageUrl.get_width() * self.imageScale, self.imageUrl.get_height() * self.imageScale))
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-
+        self.lives = 3
+        livesUrl = pygame.image.load("./src/assets/icons/live.webp")
+        self.livesUrl = pygame.transform.scale(livesUrl, (60, 60))
     def createNewMissle(self):
         currentTime = time.time()
         if len(self.missles) < 3 and currentTime > self.missleStartTime + self.missleDebouncing:
