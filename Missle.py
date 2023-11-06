@@ -2,7 +2,7 @@ import pygame
 from Constants import *
 
 class Missle:
-    def __init__(self, x, y):
+    def __init__(self, x, y, enemy=False):
         self.imageUrl = pygame.image.load("./src/assets/icons/missle.png")
         self.imageScale = 1.5
         self.image = pygame.transform.scale(self.imageUrl, (self.imageUrl.get_width() * self.imageScale, self.imageUrl.get_height() * self.imageScale))
@@ -12,6 +12,9 @@ class Missle:
         self.y = y - self.height
         self.vy = 10
         self.damage = 20
+
+        if enemy:
+            self.image = pygame.transform.rotate(self.image,180)
 
     @staticmethod
     def printMissle(x,y):
@@ -23,8 +26,8 @@ class Missle:
     def getX(self):
         return self.x
 
-    def update(self):
-        self.y -= self.vy
+    def update(self,direction = -1):
+        self.y += direction*self.vy 
 
     def print(self):
         screen.blit(self.image,(self.x, self.y))
