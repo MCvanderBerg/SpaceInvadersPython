@@ -1,4 +1,5 @@
-import Alien as invader
+from Alien import Alien
+from Shooters import Shooter
 from Constants import SCREEN_WIDTH, ALIEN_AMOUNT_ROW, ALIEN_AMOUNT_COLUMN, X_OFFSET, Y_OFFSET, WIDTH
 
 class Enemies:
@@ -6,7 +7,7 @@ class Enemies:
         self.aliens = []
         for i in range(ALIEN_AMOUNT_ROW):
             for j in range(ALIEN_AMOUNT_COLUMN):
-                self.aliens.append(invader.Alien(i*WIDTH*3 + X_OFFSET,j*WIDTH*2 + Y_OFFSET))
+                self.aliens.append(Shooter(i*WIDTH*3 + X_OFFSET,j*WIDTH*2 + Y_OFFSET))
 
     def getAliens(self):
         return self.aliens
@@ -23,10 +24,17 @@ class Enemies:
                 break
 
         for a in self.aliens:
+            if isinstance(a, Shooter):
+                a.createNewMissle()
+                a.clearMissles()
+                a.updateMissles()
+                a.printMissles()
+
             if reverseXdirection:
                 a.inverseDirectionX()
                 a.updateY()
             a.updateX()
+
                 
 
 
