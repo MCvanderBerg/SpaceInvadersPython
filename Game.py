@@ -1,7 +1,8 @@
 import pygame
-import Enemies as en
-import Player as pl
+from Enemies import Enemies
+from Player import Player
 from Missle import Missle as mle
+from Shooters import Shooter
 import sys
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, CLEAR, screen
 
@@ -11,8 +12,8 @@ clock = pygame.time.Clock()
 
 #Initialize pygame
 pygame.init()
-enemies = en.Enemies()
-player = pl.Player()
+enemies = Enemies()
+player = Player()
 
 
 score = 0
@@ -56,7 +57,7 @@ def run_game():
         screen.blit(scoreLabel, (10,25))
         screen.blit(scoreValue, (100, 25))
 
-        pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 25, 10*player.width, player.height))
+        pygame.draw.rect(screen, CLEAR, pygame.Rect(1500, 20, 10*player.width, player.height + 20))
         for i in range(3-len(player.missles)):
            mle.printMissle(1500 + 40*i, 25)
 
@@ -82,6 +83,20 @@ def run_game():
         player.updateMissles()
 
         #Do colition detection
+        if (enemies.aliens):
+            for a in range(len(enemies.aliens)):
+                if isinstance(enemies.aliens[a], Shooter):
+                    for m in reversed(range(len(enemies.aliens[a].missles))):
+                        if (
+                        enemies.aliens[a].missles[m].x >= player.x and
+                        enemies.aliens[a].missles[m].x <= player.x + player.width and
+                        enemies.aliens[a].missles[m].y >= player.y and
+                        enemies.aliens[a].missles[m].y <= player.y + player.height
+                        ):
+                            enemies.aliens[a].missles[m].clear()
+                            del enemies.aliens[a].missles[m]
+                            player.lives -=1
+
         if (len(player.missles)):
             for i in reversed(range(len(player.missles))):
                 for j in range(len(enemies.aliens)):
@@ -95,7 +110,8 @@ def run_game():
                         del enemies.aliens[j]
                         score += 10
                         break
-                
+        
+
 
 
 
