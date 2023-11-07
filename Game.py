@@ -2,6 +2,7 @@ import pygame
 from Enemies import Enemies
 from Player import Player
 from Missle import Missle as mle
+from Missles import Missles
 from Shooters import Shooter
 import sys
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, CLEAR, screen
@@ -14,6 +15,7 @@ clock = pygame.time.Clock()
 pygame.init()
 enemies = Enemies()
 player = Player()
+missles = Missles()
 
 
 score = 0
@@ -69,6 +71,7 @@ def run_game():
         #Print Enemies, Missles to screen
         enemies.printEnemies()
         player.printMissles()
+        missles.print()
 
         #Double buffer. Display all printed elements
         pygame.display.flip()
@@ -77,25 +80,30 @@ def run_game():
         #Print Enemies, Missles to screen
         enemies.clearEnemies()
         player.clearMissles()
+        missles.clear()
 
         #Print Enemies, Missles to screen
         enemies.updateEnemies()
         player.updateMissles()
+        missles.update()
+    
 
-        #Do colition detection
         if (enemies.aliens):
+            #Do colition detection
+            for m in range(len(missles.missles)):
+                if (
+                missles.missles[m].x >= player.x and
+                missles.missles[m].x <= player.x + player.width and
+                missles.missles[m].y >= player.y and
+                missles.missles[m].y <= player.y + player.height
+                ):
+                    missles[m].clear()
+                    del missles[m]
+                    player.lives -=1
+            
+            #Create random new missles
             for a in range(len(enemies.aliens)):
-                if isinstance(enemies.aliens[a], Shooter):
-                    for m in reversed(range(len(enemies.aliens[a].missles))):
-                        if (
-                        enemies.aliens[a].missles[m].x >= player.x and
-                        enemies.aliens[a].missles[m].x <= player.x + player.width and
-                        enemies.aliens[a].missles[m].y >= player.y and
-                        enemies.aliens[a].missles[m].y <= player.y + player.height
-                        ):
-                            enemies.aliens[a].missles[m].clear()
-                            del enemies.aliens[a].missles[m]
-                            player.lives -=1
+                missles.add(enemies.aliens[a].x, enemies.aliens[a].y)
 
         if (len(player.missles)):
             for i in reversed(range(len(player.missles))):

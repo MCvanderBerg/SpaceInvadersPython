@@ -24,12 +24,6 @@ class Enemies:
                 break
 
         for a in self.aliens:
-            if isinstance(a, Shooter):
-                a.createNewMissle()
-                a.clearMissles()
-                a.updateMissles()
-                a.printMissles()
-
             if reverseXdirection:
                 a.inverseDirectionX()
                 a.updateY()
