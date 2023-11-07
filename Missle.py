@@ -13,6 +13,7 @@ class Missle:
         self.vy = 10
         self.damage = 20
 
+
         if enemy:
             self.image = pygame.transform.rotate(self.image,180)
 

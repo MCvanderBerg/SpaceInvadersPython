@@ -51,6 +51,7 @@ def run_game():
         #Print update, clear player
         checkEvents()
 
+
         #Print Constants
         pygame.draw.rect(screen, CLEAR, pygame.Rect(100, 25, 100, 50))
         scoreValue = scoreFont.render(str(score), True, (255,255,0))

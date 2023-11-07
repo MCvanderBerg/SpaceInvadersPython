@@ -5,6 +5,8 @@ from Constants import SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR, PLAYERCOLOR, screen
 
 
 
+
+
 class Player:
     def __init__(self):
         self.x = SCREEN_WIDTH/2

@@ -2,6 +2,7 @@ from Alien import Alien
 from Shooters import Shooter
 from Constants import SCREEN_WIDTH, ALIEN_AMOUNT_ROW, ALIEN_AMOUNT_COLUMN, X_OFFSET, Y_OFFSET, WIDTH
 
+
 class Enemies:
     def __init__(self):
         self.aliens = []
