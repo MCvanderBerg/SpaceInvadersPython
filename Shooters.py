@@ -3,7 +3,6 @@ from Missle import Missle
 from  random import randint
 from Constants import SCREEN_HEIGHT
 
-
 class Shooter(Alien): 
     def __init__(self, xPos, yPos):
         super().__init__(xPos, yPos)
