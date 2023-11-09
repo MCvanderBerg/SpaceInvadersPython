@@ -45,11 +45,13 @@ class Player:
             for m in self.missles:
                 m.clear()
                          
-    def clearPlayer(self):
+    def clear(self):
         pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
 
-    def printPlayer(self):
+    def print(self):
         screen.blit(self.image,(self.x, self.y))
 
-    def updatePlayer(self,direction):
-        self.x += direction*self.vx
+    def update(self,direction):
+        if ((direction > 0 and self.x + direction*self.vx + self.width < SCREEN_WIDTH) or
+        (direction < 0 and self.x + direction*self.vx > 0)):
+            self.x += direction*self.vx

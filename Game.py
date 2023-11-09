@@ -28,13 +28,13 @@ def checkEvents():
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a or event.key == pygame.K_d:
-                player.clearPlayer()
+                player.clear()
                 if event.key == pygame.K_a:
-                    player.updatePlayer(-1)
+                    player.update(-1)
                 if event.key == pygame.K_d:
-                    player.updatePlayer(1)
+                    player.update(1)
                 
-                player.printPlayer()
+                player.print()
 
 
             if event.key == pygame.K_SPACE:
@@ -44,7 +44,7 @@ def checkEvents():
                 running = False
 
 
-player.printPlayer()
+player.print()
 def run_game():
     global score
     while running:
@@ -87,19 +87,20 @@ def run_game():
         missles.update()
     
 
-        if (enemies.aliens):
-            #Do colition detection
-            for m in range(len(missles.missles)):
-                if (
-                missles.missles[m].x >= player.x and
-                missles.missles[m].x <= player.x + player.width and
-                missles.missles[m].y >= player.y and
-                missles.missles[m].y <= player.y + player.height
-                ):
-                    missles[m].clear()
-                    del missles[m]
-                    player.lives -=1
-            
+        #Do colition detection
+        for m in reversed(range(len(missles.missles))):
+            print(missles.missles[m].x, player.x)
+            if (
+            missles.missles[m].x >= player.x and
+            missles.missles[m].x <= player.x + player.width and
+            missles.missles[m].y >= player.y and
+            missles.missles[m].y <= player.y + player.height):
+                missles.missles[m].clear()
+                del missles.missles[m]
+                player.print()
+                player.lives -=1
+
+        if (enemies.aliens):            
             #Create random new missles
             for a in range(len(enemies.aliens)):
                 missles.add(enemies.aliens[a].x, enemies.aliens[a].y)
