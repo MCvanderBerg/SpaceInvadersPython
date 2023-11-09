@@ -44,6 +44,8 @@ def checkEvents():
                 running = False
 
 
+
+
 player.print()
 def run_game():
     global score
@@ -89,7 +91,6 @@ def run_game():
 
         #Do colition detection
         for m in reversed(range(len(missles.missles))):
-            print(missles.missles[m].x, player.x)
             if (
             missles.missles[m].x >= player.x and
             missles.missles[m].x <= player.x + player.width and
