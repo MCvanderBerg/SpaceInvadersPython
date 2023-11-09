@@ -3,7 +3,6 @@ from Enemies import Enemies
 from Player import Player
 from Missle import Missle as mle
 from Missles import Missles
-from Shooters import Shooter
 import sys
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, CLEAR, screen
 
