@@ -6,6 +6,7 @@ from Constants import screen, SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR
 
 gameState = "startMenu"
 
+
 while True:
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT:
