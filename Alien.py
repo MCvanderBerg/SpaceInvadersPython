@@ -1,6 +1,7 @@
 import pygame
 from Constants import CLEAR, screen
 
+
 class Alien:
     def __init__(self, xPos, yPos):
         self.x = xPos
