@@ -26,6 +26,7 @@ class Player:
             self.missleStartTime = currentTime
             self.missles.append(Missle(self.x + self.width/2, self.y))
 
+
     def updateMissles(self):
         if self.missles:
             for i in reversed(range(len(self.missles))):
