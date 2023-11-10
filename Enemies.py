@@ -1,6 +1,7 @@
 from Constants import SCREEN_WIDTH, ALIEN_AMOUNT_ROW, ALIEN_AMOUNT_COLUMN, X_OFFSET, Y_OFFSET, WIDTH
 from Alien import Alien
 
+
 class Enemies:
     def __init__(self):
         self.aliens = []
