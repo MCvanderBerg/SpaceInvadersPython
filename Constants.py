@@ -1,6 +1,5 @@
 import pygame
 
-
 #CONSTANTS
 SCREEN_WIDTH = 1800
 SCREEN_HEIGHT = 1000
