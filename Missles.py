@@ -3,8 +3,6 @@ from Constants import SCREEN_HEIGHT, CLEAR, screen
 from pygame import Rect, draw
 from  random import randint
 
-
-
 class Missles:
     def __init__(self):
         self.missles = []
