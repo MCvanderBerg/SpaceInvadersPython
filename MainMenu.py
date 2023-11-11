@@ -1,7 +1,6 @@
 from Constants import SCREEN_WIDTH, SCREEN_HEIGHT, CLEAR, screen
 import pygame
 
-
 def run_menu():
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 40)
