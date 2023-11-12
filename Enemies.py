@@ -8,6 +8,7 @@ class Enemies:
             for j in range(ALIEN_AMOUNT_COLUMN):
                 self.aliens.append(Alien(i*WIDTH*3 + X_OFFSET,j*WIDTH*2 + Y_OFFSET))
 
+
     def getAliens(self):
         return self.aliens
 
