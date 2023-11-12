@@ -88,6 +88,7 @@ def run_game():
         player.updateMissles()
         missles.update()
     
+    
         #Do colition detection
         for m in reversed(range(len(missles.missles))):
             if (
