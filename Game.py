@@ -46,9 +46,9 @@ def checkEvents():
 
 
 
-player.print()
 def run_game():
     global score
+    player.print()
     while running:
         #Check for user inputs
         #Print update, clear player
