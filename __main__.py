@@ -21,7 +21,7 @@ while True:
         run_menu()
     elif gameState == "runGame":
         #Run game
-        run_game()
+        gameState = run_game()
 
 
     print("game over")
