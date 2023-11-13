@@ -48,6 +48,7 @@ def checkEvents():
 
 def run_game():
     global score
+    global running
     player.print()
     while running:
         #Check for user inputs
@@ -106,7 +107,7 @@ def run_game():
             for a in range(len(enemies.aliens)):
                 missles.add(enemies.aliens[a].x, enemies.aliens[a].y)
 
-        if (len(player.missles)):
+        if len(player.missles):
             for i in reversed(range(len(player.missles))):
                 for j in range(len(enemies.aliens)):
                     if (
@@ -119,6 +120,18 @@ def run_game():
                         del enemies.aliens[j]
                         score += 10
                         break
+
+        #Conditions to end game
+        if not enemies.aliens:
+            pygame.draw.rect(screen, CLEAR, pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+            pygame.display.flip()
+            running = False
+
+        if not player.lives:
+            pygame.draw.rect(screen, CLEAR, pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
+            pygame.display.flip()
+            running = False
+
         
 
 

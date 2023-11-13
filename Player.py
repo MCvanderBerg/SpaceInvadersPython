@@ -21,10 +21,10 @@ class Player:
         livesUrl = pygame.image.load("./src/assets/icons/live.webp")
         self.livesUrl = pygame.transform.scale(livesUrl, (60, 60))
     def createNewMissle(self):
-        currentTime = time.time()
-        if len(self.missles) < 3 and currentTime > self.missleStartTime + self.missleDebouncing:
-            self.missleStartTime = currentTime
-            self.missles.append(Missle(self.x + self.width/2, self.y))
+        #currentTime = time.time()
+       # if len(self.missles) < 3 and currentTime > self.missleStartTime + self.missleDebouncing:
+         #   self.missleStartTime = currentTime
+        self.missles.append(Missle(self.x + self.width/2, self.y))
 
     def updateMissles(self):
         if self.missles:

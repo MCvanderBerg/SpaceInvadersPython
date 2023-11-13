@@ -22,3 +22,6 @@ while True:
     elif gameState == "runGame":
         #Run game
         run_game()
+
+
+    print("game over")
