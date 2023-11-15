@@ -16,6 +16,7 @@ class Enemies:
         for a in self.aliens:
             a.printAlien()
 
+
     def updateEnemies(self):
         reverseXdirection = False
         for a in self.aliens:
