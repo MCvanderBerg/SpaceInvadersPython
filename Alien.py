@@ -15,6 +15,7 @@ class Alien:
         self.height = self.image.get_height()
 
 
+
     def printAlien(self):
         screen.blit(self.image,(self.x, self.y))
 
