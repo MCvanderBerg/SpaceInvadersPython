@@ -45,6 +45,7 @@ class Player:
         if self.missles:
             for m in self.missles:
                 m.clear()
+                      
                          
     def clear(self):
         pygame.draw.rect(screen, CLEAR, pygame.Rect(self.x, self.y, self.width, self.height))
