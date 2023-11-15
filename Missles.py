@@ -20,6 +20,7 @@ class Missles:
                     self.missles[m].update()
 
 
+
     def clear(self):
         for m in reversed(range(len(self.missles))):
             draw.rect(screen, CLEAR, Rect(self.missles[m].x, self.missles[m].y, self.missles[m].width, self.missles[m].height))
