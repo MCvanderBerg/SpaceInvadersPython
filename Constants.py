@@ -1,11 +1,9 @@
 import pygame
 
-
 #CONSTANTS
 SCREEN_WIDTH = 1800
 SCREEN_HEIGHT = 1000
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
-
 
 #ALIENT CONTANTS
 ALIEN_AMOUNT_ROW = 1
