@@ -28,8 +28,3 @@ class Alien:
 
     def updateY(self):
         self.y += self.vy
-
-
-
-        
-
