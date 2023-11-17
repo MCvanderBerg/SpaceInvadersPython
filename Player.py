@@ -34,6 +34,7 @@ class Player:
                 else:
                     self.missles[i].update()
 
+
     def printMissles(self):
         if self.missles:
             for m in self.missles:
