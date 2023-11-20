@@ -49,6 +49,7 @@ def checkEvents():
 def run_game():
     global score
     global running
+    print(running)
     player.print()
     while running:
         #Check for user inputs
