@@ -26,6 +26,7 @@ def checkEvents():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a or event.key == pygame.K_d:
                 player.clear()
@@ -43,7 +44,27 @@ def checkEvents():
             if event.key == pygame.K_ESCAPE:
                 running = False
 
+def resetGame():
+    global enemies
+    global player
+    global missles
+    global running
+    global clock
+    global score
+    global scoreLabel
+    #Initialize pygame
+    pygame.init()
+    enemies = Enemies()
+    player = Player()
+    missles = Missles()
 
+    running = True
+    clock = pygame.time.Clock()
+
+
+    score = 0
+    scoreFont = pygame.font.SysFont("monospace", 36)
+    scoreLabel = scoreFont.render("Score: ", True, (255,255,0))
 
 
 def run_game():
