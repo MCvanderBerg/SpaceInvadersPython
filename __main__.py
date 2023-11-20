@@ -1,10 +1,11 @@
 import pygame
 from Game import run_game
 from MainMenu import run_menu
+from GameOver import game_over
 import sys
 from Constants import screen, SCREEN_HEIGHT, SCREEN_WIDTH, CLEAR 
 
-gameState = "startMenu"
+gameState = "gameOver"
 
 while True:
     for event in pygame.event.get(): 
@@ -18,10 +19,11 @@ while True:
                 gameState = "runGame"
 
     if gameState == "startMenu":
-        run_menu()
+        gameState = run_menu()
     elif gameState == "runGame":
-        #Run game
         gameState = run_game()
+    elif gameState == "gameOver":
+        gameState = game_over()
 
 
-    print("game over")
+

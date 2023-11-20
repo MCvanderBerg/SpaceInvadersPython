@@ -132,7 +132,7 @@ def run_game():
             pygame.draw.rect(screen, CLEAR, pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT))
             pygame.display.flip()
             running = False
-            return "startMenu"
+            return "gameOver"
 
 
         
