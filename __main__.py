@@ -1,5 +1,5 @@
 import pygame
-from Game import run_game, resetGame
+from Game import run_game
 from MainMenu import run_menu
 from GameOver import game_over
 import sys
@@ -10,7 +10,6 @@ while True:
     if gameState == "startMenu":
         gameState = run_menu()
     elif gameState == "runGame":
-        resetGame()
         gameState = run_game()
     elif gameState == "gameOver":
         gameState = game_over()
